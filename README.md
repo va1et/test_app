@@ -1,16 +1,56 @@
-# test_app_effective
+# test_app
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+Это тестовое мобильное приложение.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Самостоятельная сборка проекта
+1. Установите стабильную версию Flutter для своей операционной системы, используя [руководство на странице документации](https://docs.flutter.dev/get-started/install). 
+2. Установить зависимости пакетов:
+```
+flutter pub get
+```
+3. Откройте эмулятор устройства, а затем запустите проект, выполнив команду:
+```
+flutter run
+```
+4. Используйте одну из этих команд для сборки проекта:
+```
+flutter build apk
+flutter build ios
+flutter build appbundle
+```
+5. Если возникнут какие-либо проблемы при выполнении предыдущих действий, выполните приведенную ниже команду для анализа и устанения неполадок:
+```
+flutter doctor
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Генерация кода
+Пакеты **freezed** и **auto_route** генерируют код для API моделей данных и навигации.
+Используйте флаг [watch], чтобы следить за изменениями в файловой системе и перестраивать код при необходимости.
+```
+flutter packages pub run build_runner watch --delete-conflicting-outputs
+```
+
+Если вы хотите, чтобы генератор запустился один раз и завершил работу, используйте
+```
+flutter packages pub run build_runner build --delete-conflicting-outputs
+```
+
+## При ошибках
+**Исключения платформы**
+1. flutter clean
+2. flutter pub get
+3. flutter run
+
+**Любое исключение пакета (зависимости)**
+- Удалите pubspec.lock файл
+
+Выполните следующие команды:
+1. flutter clean
+2. flutter pub cache repair
+3. flutter pub get
+4. flutter run
+
+
